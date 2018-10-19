@@ -16,5 +16,13 @@ namespace RegisztracioAlkalmazas
         {
             InitializeComponent();
         }
+
+
+        private void Mentes() {
+            string adatok = 
+
+        }
+
+       
     }
 }
