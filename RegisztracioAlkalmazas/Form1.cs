@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,48 @@ namespace RegisztracioAlkalmazas
         public Form1()
         {
             InitializeComponent();
+
+            button2.Click += (sender, e) => {
+                Mentes();
+            };
+
+            button3.Click += (sender, e) => {
+                Betoltes();
+            };
+
         }
 
 
         private void Mentes() {
-            string adatok = 
+            string adatok = textBox1.Text+ ";" + textBox2.Text+";" + textBox3.Text  ;
+
+            var eremeny = saveFileDialog1.ShowDialog(this);
+            if (eremeny == DialogResult.OK) {
+                string FileNev = saveFileDialog1.FileName;
+                File.WriteAllText(FileNev, adatok);
+
+            }
+
 
         }
 
-       
+        private void Betoltes()
+        {
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            {
+
+              //  Text = File.ReadAllText(openFileDialog1.FileName);
+            }
+
+
+        }
+
+        private void Hobbi_felvetel() {
+            string hobbi = textBox4.Text;
+
+        }
+
+
     }
 }
