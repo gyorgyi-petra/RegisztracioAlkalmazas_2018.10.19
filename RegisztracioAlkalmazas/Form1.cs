@@ -35,7 +35,7 @@ namespace RegisztracioAlkalmazas
 
         private void Mentes()
         {
-            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + textBox3.Text;
+            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + listBox1.Text;
 
             var eremeny = saveFileDialog1.ShowDialog(this);
             if (eremeny == DialogResult.OK)
@@ -50,7 +50,7 @@ namespace RegisztracioAlkalmazas
 
         private void Betoltes()
         {
-            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + textBox3.Text;
+            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + listBox1.Text;
 
             openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
