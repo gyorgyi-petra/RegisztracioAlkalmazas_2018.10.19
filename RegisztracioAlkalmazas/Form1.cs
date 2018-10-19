@@ -17,22 +17,29 @@ namespace RegisztracioAlkalmazas
         {
             InitializeComponent();
 
-            button2.Click += (sender, e) => {
+
+
+            button2.Click += (sender, e) =>
+            {
                 Mentes();
             };
 
-            button3.Click += (sender, e) => {
+            button3.Click += (sender, e) =>
+            {
                 Betoltes();
             };
 
         }
 
+      
 
-        private void Mentes() {
-            string adatok = textBox1.Text+ ";" + textBox2.Text+";" + textBox3.Text  ;
+        private void Mentes()
+        {
+            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + textBox3.Text;
 
             var eremeny = saveFileDialog1.ShowDialog(this);
-            if (eremeny == DialogResult.OK) {
+            if (eremeny == DialogResult.OK)
+            {
                 string FileNev = saveFileDialog1.FileName;
                 File.WriteAllText(FileNev, adatok);
 
@@ -43,21 +50,30 @@ namespace RegisztracioAlkalmazas
 
         private void Betoltes()
         {
+            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + textBox3.Text;
+
             openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
 
-              //  Text = File.ReadAllText(openFileDialog1.FileName);
+                adatok = File.ReadAllText(openFileDialog1.FileName);
             }
 
 
         }
 
-        private void Hobbi_felvetel() {
-            string hobbi = textBox4.Text;
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+
 
         }
+    
+
+
 
 
     }
+
 }
