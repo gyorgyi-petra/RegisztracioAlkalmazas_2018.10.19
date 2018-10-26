@@ -35,28 +35,34 @@ namespace RegisztracioAlkalmazas
 
         private void Mentes()
         {
-            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + listBox1.Text;
+            List<string> adatok = new List<string>();
+            string tartalom = "Név: "  + textBox1.Text + ";" +"\nSzületési dátum: "+ textBox2.Text + ";"+ "\nKedvenc hobbi: "  + listBox1.Text;
 
-            var eremeny = saveFileDialog1.ShowDialog(this);
-            if (eremeny == DialogResult.OK)
-            {
-                string FileNev = saveFileDialog1.FileName;
-                File.WriteAllText(FileNev, adatok);
+            if (listBox1.SelectedValue !=null) {
+                tartalom += listBox1.SelectedValue;
 
             }
+            adatok.Add(tartalom);
+            var eredmeny = saveFileDialog1.ShowDialog(this);
+            if (eredmeny == DialogResult.OK) {
 
+                string fajlnev = saveFileDialog1.FileName;
+                using (var file = File.CreateText(fajlnev)) {
+                    file.Write(tartalom);
+                }
+            }
 
         }
 
         private void Betoltes()
         {
-            string adatok = textBox1.Text + ";" + textBox2.Text + ";" + listBox1.Text;
+           
 
             openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
 
-                adatok = File.ReadAllText(openFileDialog1.FileName);
+               // adatok = File.ReadAllText(openFileDialog1.FileName);
             }
 
 
