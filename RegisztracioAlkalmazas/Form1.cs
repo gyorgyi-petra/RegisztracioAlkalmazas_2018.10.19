@@ -62,10 +62,13 @@ namespace RegisztracioAlkalmazas
 
         }
 
-        
+        //hobbi hozzáad
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            if (textBox4 !=null) {
+                listBox1.Items.Add(textBox4.Text);
+
+            }
 
 
         }
