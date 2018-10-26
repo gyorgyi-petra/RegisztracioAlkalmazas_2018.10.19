@@ -19,7 +19,7 @@ namespace RegisztracioAlkalmazas
 
 
 
-            button2.Click += (sender, e) =>
+            button2.Click +=   (sender, e) =>
             {
                 Mentes();
             };
