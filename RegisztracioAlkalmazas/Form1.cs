@@ -36,12 +36,21 @@ namespace RegisztracioAlkalmazas
         private void Mentes()
         {
             List<string> adatok = new List<string>();
-            string tartalom = "Név: "  + textBox1.Text + ";" +"\nSzületési dátum: "+ textBox2.Text + ";"+ "\nKedvenc hobbi: "  + listBox1.Text;
+            string tartalom = "";
+
+            if (radioButton1.Checked == true) {
+                tartalom = "Név: " + textBox1.Text + ";" + "\nSzületési dátum: " + textBox2.Text + ";" + "Nem: Nő " + ";" + "\nKedvenc hobbi: " + listBox1.Text;
+            } else if (radioButton2.Checked == true) {
+                tartalom = "Név: " + textBox1.Text + ";" + "\nSzületési dátum: " + textBox2.Text + ";" + "Nem: Férfi"  + ";" + "\nKedvenc hobbi: " + listBox1.Text;
+            }
+           
 
             if (listBox1.SelectedValue !=null) {
                 tartalom += listBox1.SelectedValue;
 
             }
+
+
             adatok.Add(tartalom);
             var eredmeny = saveFileDialog1.ShowDialog(this);
             if (eredmeny == DialogResult.OK) {
@@ -66,6 +75,14 @@ namespace RegisztracioAlkalmazas
             }
 
 
+        }
+
+        public void Ffi_vagy_no() {
+            if (radioButton1.Checked == true) {
+                radioButton2.Checked = false;
+            } else if (radioButton2.Checked == true) {
+                radioButton1.Checked = false;
+            }
         }
 
         //hobbi hozzáad
